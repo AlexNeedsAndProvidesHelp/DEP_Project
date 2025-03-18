@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+
+{% block content %}
+  <div style="display: flex; justify-content: flex-start; align-items: center; height: auto; text-align: center; color: white; margin-top: 120px; padding-left: 20px;">
+    <h1>Informations sur la base de donnée</h1>
+  </div>
+
+  <!-- Affichage des textes générés -->
+  <div style="color: white; margin-top: 20px;">
+    <h2>Textes générés :</h2>
+    <div>
+      {% for text in generated_texts %}
+        <div style="margin-bottom: 20px;">
+          <p><strong>database ID :</strong> {{ text.id }}</p>
+          <p><strong>Date de création :</strong> {{ text.created_at }}</p>
+          <p><strong>Titre :</strong> {{ text.title }}</p>
+          <p><strong>Sous-titre :</strong> {{ text.subtitle }}</p>
+          <p><strong>Question :</strong> {{ text.question }}</p>
+          <p><strong>Com1 :</strong> {{ text.com1 }}</p>
+          <p><strong>Com2 :</strong> {{ text.com2 }}</p>
+          <p><strong>Com3 :</strong> {{ text.com3 }}</p>
+          <p><strong>Thème 1 :</strong> {{ text.theme1 }}</p>
+          <p><strong>Thème 2 :</strong> {{ text.theme2 }}</p>
+          <p><strong>Thème 3 :</strong> {{ text.theme3 }}</p>
+        </div>
+        <hr style="border-color: white;">
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

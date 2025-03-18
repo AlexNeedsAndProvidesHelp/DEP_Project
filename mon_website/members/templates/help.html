@@ -1,0 +1,90 @@
+{% extends "gabarit.html" %}
+{% load static %}  
+
+{% block content %}
+  <div style="text-align: center; color: white; margin-top: 40px;">
+    <h1>Menu d'Aide</h1>
+  </div>
+
+  <!-- Onglets -->
+  <div class="tabs" style="display: flex; justify-content: center; margin-top: 20px;">
+    <button class="tab-button" onclick="openTab(event, 'history')">History</button>
+    <button class="tab-button" onclick="openTab(event, 'ollama')">Ollama</button>
+    <button class="tab-button" onclick="openTab(event, 'database')">Database</button>
+    <button class="tab-button" onclick="openTab(event, 'help')">Help</button>
+  </div>
+
+  <!-- Contenu des onglets -->
+  <div id="history" class="tab-content" style="display: none; color: white; margin-top: 20px;">
+    <h2>History</h2>
+    <p><strong>Onglet History :</strong> Cet onglet permet de voir les 8 derniers articles générés. Chaque nouvel article généré écrase l'ancien et s'affiche en premier ensuite.</p>
+  </div>
+
+  <div id="ollama" class="tab-content" style="display: none; color: white; margin-top: 20px;">
+    <h2>Ollama</h2>
+    <p><strong>Onglet Ollama :</strong> Cet onglet permet de générer un article. Cela peut prendre plusieurs minutes. Merci de patienter.</p>
+  </div>
+
+  <div id="database" class="tab-content" style="display: none; color: white; margin-top: 20px;">
+    <h2>Database</h2>
+    <p><strong>Onglet Database :</strong> Cet onglet donne des informations sur la base de données.</p>
+  </div>
+
+  <div id="help" class="tab-content" style="display: none; color: white; margin-top: 20px;">
+    <h2>Help</h2>
+    <p><strong>Onglet Help :</strong> Vous êtes dans le menu d'aide. Sélectionnez un onglet pour obtenir plus d'informations.</p>
+  </div>
+
+  <script>
+    // Fonction pour ouvrir un onglet spécifique
+    function openTab(evt, tabName) {
+      // Cacher tous les onglets
+      var i, tabContent, tabButtons;
+      tabContent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = "none";
+      }
+
+      // Désactiver tous les boutons des onglets
+      tabButtons = document.getElementsByClassName("tab-button");
+      for (i = 0; i < tabButtons.length; i++) {
+        tabButtons[i].className = tabButtons[i].className.replace(" active", "");
+      }
+
+      // Afficher l'onglet et activer le bouton correspondant
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+
+    // Par défaut, ouvrir l'onglet "Help"
+    document.getElementsByClassName("tab-button")[3].click();
+  </script>
+
+  <style>
+    .tab-button {
+      background-color: #4CAF50; /* Vert */
+      color: white;
+      padding: 14px 20px;
+      border: none;
+      cursor: pointer;
+      width: 25%;
+    }
+
+    .tab-button:hover {
+      background-color: #45a049;
+    }
+
+    .tab-button.active {
+      background-color: #3e8e41;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 20px;
+      margin-top: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #333;
+    }
+  </style>
+{% endblock %}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textes générés</title>
+</head>
+<body>
+    <h1>Historique des textes générés</h1>
+    <ul>
+        {% for text in texts %}
+            <li>
+                <strong>{{ text.title }}</strong> ({{ text.created_at }})<br>
+                Sous-titre : {{ text.subtitle }}<br>
+                Question : {{ text.question }}<br>
+                Mots-clés : {{ text.com1 }}, {{ text.com2 }}, {{ text.com3 }}<br>
+                Thèmes : {{ text.theme1 }}, {{ text.theme2 }}, {{ text.theme3 }}
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
+</body>
+</html>

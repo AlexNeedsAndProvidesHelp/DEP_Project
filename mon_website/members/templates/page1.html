@@ -1,0 +1,254 @@
+{% load static %}  
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MON JOURNAL</title>
+    <link rel="stylesheet" href="{% static 'css/page1.css' %}" />
+  </head>
+  <body>
+    <!-- NAVIGATION -->
+    <nav class="nav">
+      <div class="nav__logo">
+        <h1>L<span>Z</span></h1>
+      </div>
+      <ul>
+        <li class="list-items"><a href="{% url 'calendar' %}">History</a></li>
+        <li class="list-items"><a href="{% url 'home' %}">Home</a></li>
+        <li class="list-items"><a href="{% url 'logs' %}">Database</a></li>
+        <li class="list-items"><a href="{% url 'help' %}">Help</a></li>
+      </ul>
+    </nav>
+    <header class="hero">
+      <section class="hero__headings-container">
+        <h3>Tout <span>Sur</span></h3>
+        <h1 class="hero__main-headings">
+          Titre: <span class="main-span">{{ ai_title }}</span>
+        </h1>
+        <p>CECI EST UN ARTICLE GENERE PAR IA</p>
+        <a href="#" class="main-btn">Learn More</a>
+      </section>
+    </header>
+
+    <h1 class="main-headings center">
+      ia : <span class="main-span">{{ subtitle }}</span>
+    </h1>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+      <!-- CARDS -->
+      <section class="cards">
+        <div class="card">
+          <div class="card-image img-one"></div>
+          <p>{{ com1 }}</p>
+        </div>
+        <div class="card">
+          <div class="card-image img-two"></div>
+          <p>{{ com2 }}</p>
+        </div>
+        <div class="card">
+          <div class="card-image img-three"></div>
+          <p>{{ com3 }}</p>
+        </div>
+      </section>
+    </section>
+
+    <h1 class="main-headings">ia :<span class="main-span">{{ theme1 }}</span></h1>
+
+    <section class="why-us" id="why-us">
+      <div class="lists-container">
+        <div class="list">
+          <div class="list-number">
+            <p>1</p>
+          </div>
+          <p class="list-info">Bonjour</p>
+        </div>
+        <div class="list">
+          <div class="list-number">
+            <p>2</p>
+          </div>
+          <p class="list-info">Aurevoir</p>
+        </div>
+        <div class="list">
+          <div class="list-number">
+            <p>3</p>
+          </div>
+          <p class="list-info">La vie est un fleuve</p>
+        </div>
+        <div class="list">
+          <div class="list-number">
+            <p>4</p>
+          </div>
+          <p class="list-info">L'orage gronde</p>
+        </div>
+        <div class="list">
+          <div class="list-number">
+            <p>5</p>
+          </div>
+          <p class="list-info">Les fleurs printanières</p>
+        </div>
+      </div>
+      <div class="owner-image-container">
+        <div class="owner-image"></div>
+      </div>
+    </section>
+
+    <h1 class="main-headings center">
+      CONNAITRE <span class="main-span">{{ theme2 }}</span>
+    </h1>
+
+    <!-- PROJECT DETAILS -->
+    <section class="project-details" id="project-details">
+      <section class="project-details__container-left">
+        <div class="img-container">
+          <div class="card-image project-details-img img-one"></div>
+        </div>
+        <section class="details">
+          <p class="title">Un jour comme un autre</p>
+          <div class="list">
+            <div class="list-number">
+              <p>1</p>
+            </div>
+            <p class="list-info">MON PROVERBE <span style="display: block;"></span>
+            </p>
+          </div>
+          <div class="list">
+            <div class="list-number">
+              <p>2</p>
+            </div>
+            <p class="list-info">JAMAIS DIRE JAMAIS <span style="display: block;"></span>
+            </p>
+          </div>
+          <div class="list">
+            <div class="list-number">
+              <p>3</p>
+            </div>
+            <p class="list-info">JAMAIS AU GRAND JAMAIS <span style="display: block;"></span>
+            </p>
+          </div>
+          <div class="list">
+            <div class="list-number">
+              <p>4</p>
+            </div>
+            <p class="list-info">JAMAIS MAIS MAJAMAI JAMAI <span style="display: block;"></span>
+            </p>
+          </div>
+          <div class="list">
+            <div class="list-number">
+              <p>5</p>
+            </div>
+            <p class="list-info">ABRACADABRA <span style="display: block;"></span>
+            (cadabra brabra)</p>
+          </div>
+        </section>
+      </section>
+
+      <section class="project-details__container-right">
+        <section class="details">
+          <p class="title">{{ theme3 }}</p>
+
+          <div class="list">
+            <div class="list-number">
+              <p>1</p>
+            </div>
+            <p class="list-info">CA ALORS</p>
+          </div>
+          <div class="list">
+            <div class="list-number">
+              <p>2</p>
+            </div>
+            <p class="list-info">C'EST DIFFICILE A DIRE</p>
+          </div>
+          <div class="list">
+            <div class="list-number">
+              <p>3</p>
+            </div>
+            <p class="list-info">EN TOUT CAS PAS LE LUNDI</p>
+          </div>
+          <div class="list">
+            <div class="list-number">
+              <p>4</p>
+            </div>
+            <p class="list-info">LE LUNDI EST UN JOUR COMME UN AUTRE</p>
+          </div>
+          <div class="list">
+            <div class="list-number">
+              <p>5</p>
+            </div>
+            <p class="list-info">LES JOURS FINISSENT EN I</p>
+          </div>
+          <div class="list">
+            <div class="list-number">
+              <p>6</p>
+            </div>
+            <p class="list-info">MAIS PAS LE DIMANCHE</p>
+            </div>
+
+        </section>
+        <div class="img-container">
+          <div class="card-image project-details-img img-two"></div>
+        </div>
+      </section>
+
+
+      <section class="project-details__container-left">
+        <div class="img-container">
+          <div class="card-image project-details-img img-three"></div>
+        </div>
+        <section class="details">
+          <p class="title">Le dimanche est un jour spécial</p>
+          <div class="list">
+            <div class="list-number">
+              <p>1</p>
+            </div>
+            <p class="list-info">
+              jour special</p>
+          </div>
+          <div class="list">
+            <div class="list-number">
+              <p>2</p>
+            </div>
+            <p class="list-info">LES JOURS PAS SPECIAUX AUSSI</p>
+          </div>
+          <div class="list">
+            <div class="list-number">
+              <p>3</p>
+            </div>
+            <p class="list-info">TOUS LES JOURS SONT SPECIAUX</p>
+          </div>
+          <div class="list">
+            <div class="list-number">
+              <p>4</p>
+            </div>
+            <p class="list-info">
+            NON A LA JOUROPHOBIE              
+            </p>
+          </div>
+          <div class="list">
+            <div class="list-number">
+              <p>5</p>
+            </div>
+            <p class="list-info">JOUROPHACHISTE</p>
+          </div>
+        </section>
+    </section>
+
+    <form>
+      <input type="text" placeholder="Alex es tu là">
+      <input type="email" placeholder="Qu'est ce que tu veux ?">
+      <input type="password" placeholder="Le jour dernier a commencé">
+      <a href="#" class="form-btn">Videos</a>
+    </form>
+
+    <footer>
+      <a href="">Actualité</a>
+      <a href="">Exemples</a>
+      <a href="">Videos</a>
+      <a href="">Partage</a>
+      <a href="">porter plainte</a>
+    </footer>
+  </body>
+</html>

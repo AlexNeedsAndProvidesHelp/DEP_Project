@@ -1,0 +1,116 @@
+{% load static %}  
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rotating Gallery</title>
+    <link rel="stylesheet" href="{% static 'css/calendar.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/text.css' %}" />
+
+
+  </head>
+  <body>
+
+    <nav id="nav">
+      <ul>
+        <li><a href="{% url 'calendar' %}">History</a></li>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'logs' %}">Database</a></li>
+        <li><a href="{% url 'help' %}">Help</a></li>
+      </ul>
+
+      <button class="icon" id="toggle">
+        <div class="line line1"></div>
+        <div class="line line2"></div>
+      </button>
+    </nav>
+
+    <script src="{% static 'js/menu.js' %}"></script>
+
+    <div class="js-text">
+    <p>
+      <span class="js">Calendar</span> Is <span class="typed-text"></span>
+      <span class="cursor">&nbsp;</span>
+    </p>
+    </div>
+
+
+    <div class="image-container">
+      
+      <span style="--i: 1" >
+        <a href="{% url 'generated_texts' id=1 %}">
+        <img
+          src="{% static 'image/image1.jpeg' %}"
+        />
+      </a>
+      </span>
+      
+      <span style="--i: 2" >
+        <a href="{% url 'generated_texts' id=2 %}">
+        <img
+          src="{% static 'image/image2.jpeg' %}"
+        />
+        </a>
+      </span>
+      
+      <span style="--i: 3">
+        <a href="{% url 'generated_texts' id=3 %}">
+        <img
+          src="{% static 'image/image3.jpeg' %}"
+        />
+        </a>
+      </span>
+
+      <span style="--i: 4">
+        <a href="{% url 'generated_texts' id=4 %}">
+        <img
+          src="{% static 'image/image4.jpeg' %}"
+        />
+        </a>
+      </span>
+
+      <span style="--i: 5">
+        <a href="{% url 'generated_texts' id=5 %}">
+        <img
+          src="{% static 'image/image5.jpeg' %}"
+        />
+        </a>
+      </span>
+
+      <span style="--i: 6">
+        <a href="{% url 'generated_texts' id=6 %}">
+        <img
+          src="{% static 'image/image6.jpeg' %}"
+        />
+        </a>
+      </span>
+
+      <span style="--i: 7">
+        <a href="{% url 'generated_texts' id=7 %}">
+        <img
+          src="{% static 'image/image7.jpeg' %}"
+        />
+        </a>
+      </span>
+
+      <span style="--i: 8">
+        <a href="{% url 'generated_texts' id=8 %}">
+        <img
+          src="{% static 'image/image8.jpeg' %}"
+        />
+        </a>
+      </span>
+
+    </div>
+
+    <div class="btn-container">
+      <button class="btn" id="prev">Prev</button>
+      <button class="btn" id="next">Next</button>
+    </div>
+    <script src="{% static 'js/calendar.js' %}"></script>
+    <script src="{% static 'js/text.js' %}"></script>
+
+  </body>
+</html>

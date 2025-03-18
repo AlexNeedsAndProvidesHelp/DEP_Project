@@ -1,0 +1,28 @@
+{% load static %}  
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Background Video{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+  </head>
+  <body>
+<script src="{% static 'js/index.js' %}"></script>
+<nav class="nav">
+<div class="menu">
+      <ul>
+	<li><a class="list-items" id="Calendar" href="{% url 'calendar' %}">History</a></li>
+        <li><a class="list-items" id="Carousel" href="{% url 'page1' %}">New (Ollama)</a></li>
+        <li><a class="list-items" id="Carouge" href="{% url 'logs' %}">Database</a></li>
+        <li><a class="list-items" id="Carreaux" href="{% url 'help' %}">Help</a></li>
+        <li><a class="list-items" id="Caroline" href="">Sign In</a></li>
+	<li><a class="list-items" id="Carrefour" href="">Contact</a></li>
+
+      </ul>
+</div>
+</nav>
+
+      {% block content %}{% endblock %}
+  </body>
+</html>

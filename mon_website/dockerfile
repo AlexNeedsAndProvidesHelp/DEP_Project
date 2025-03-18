@@ -1,0 +1,20 @@
+# Utilisation de l'image officielle Python
+FROM python:3.11
+
+# Définition du répertoire de travail
+WORKDIR /app
+
+# Copie des fichiers dans le conteneur
+COPY requirements.txt .
+
+# Installer les dépendances nécessaires
+RUN apt-get update && \
+    apt-get install -y postgresql-client
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copie du projet
+COPY . .
+
+# Définition de la commande de lancement
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
