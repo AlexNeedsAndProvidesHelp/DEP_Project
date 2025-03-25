@@ -1,0 +1,48 @@
+/* Style du conteneur principal */
+.gallery-container {
+    background-color: black;
+    height: 25vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: white;
+    padding-top: 20px;
+    position: relative;
+}
+
+/* Boutons de navigation */
+.nav-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+/* Style des flèches */
+.arrow {
+    font-size: 100px;
+    font-weight: bold;
+}
+
+/* Animation de pivot horizontal avec accélération et décélération */
+@keyframes flip {
+    0% { transform: translateX(-50%) rotateY(0deg); }
+    50% { transform: translateX(-50%) rotateY(180deg); }
+    100% { transform: translateX(-50%) rotateY(360deg); }
+}
+
+/* Texte animé */
+.flipping-text {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: red; /* Texte rouge */
+    font-size: 30px;
+    font-weight: bold;
+    animation: flip 4s infinite ease-in-out; /* Mouvement fluide */
+    transform-style: preserve-3d; /* Effet 3D */
+}

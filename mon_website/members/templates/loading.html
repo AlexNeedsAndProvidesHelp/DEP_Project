@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+  <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; text-align: center; color: white;">
+    <h1>Ollama est en train de générer la page. Merci de patienter...</h1>
+    <div id="counter" style="font-size: 100px; font-weight: bold; margin-top: 20px;">0</div>
+  </div>
+
+  <script src="{% static 'js/loading.js' %}"></script>  <!-- Chargement du fichier externe -->
+{% endblock %}
