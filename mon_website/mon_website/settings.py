@@ -90,10 +90,11 @@ DATABASES = {
         'NAME': get_env_variable('POSTGRES_DB', 'mydatabase'),  # Valeur par défaut 'mydatabase' si non définie
         'USER': get_env_variable('POSTGRES_USER', 'postgres'),  # Valeur par défaut 'postgres'
         'PASSWORD': get_env_variable('POSTGRES_PASSWORD', 'secret'),  # Valeur par défaut
-        'HOST': get_env_variable('DB_HOST', 'db'),  # Valeur par défaut 'db' pour correspondre à docker-compose
+        'HOST': get_env_variable('DB_HOST', 'db'),  # Utiliser le service avec le bon nom DNS
         'PORT': get_env_variable('DB_PORT', '5432'),  # Valeur par défaut '5432'
     }
 }
+
 
 
 # Password validation
@@ -140,3 +141,11 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'mailhog-service'  # Nom du service MailHog dans Docker Compose
+EMAIL_PORT = int(get_env_variable('EMAIL_PORT', 1025)) 
+EMAIL_USE_TLS = False  # MailHog ne nécessite pas de TLS
+EMAIL_HOST_USER = 'webmaster@localhost'  # Remplacez par votre email
+EMAIL_HOST_PASSWORD = 'secret'  # Remplacez par votre mot de passe
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

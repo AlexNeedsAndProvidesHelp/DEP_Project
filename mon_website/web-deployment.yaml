@@ -1,0 +1,86 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-deployment
+  namespace: my-app
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: django
+  template:
+    metadata:
+      labels:
+        app: django
+    spec:
+      initContainers:
+        - name: migrate
+          image: localhost:5000/mon_website-web  # Utilise l'image Django
+          command:
+            - "python"
+            - "manage.py"
+            - "migrate"
+          envFrom:
+            - configMapRef:
+                name: django-config
+          volumeMounts:
+            - name: postgres-data
+              mountPath: /var/lib/postgresql/data
+        - name: create-superuser
+          image: localhost:5000/mon_website-web  # Utilise la même image
+          command:
+            - "python"
+            - "manage.py"
+            - "shell"
+            - "-c"
+            - |
+              from django.contrib.auth.models import User
+              # Supprimer l'utilisateur s'il existe déjà
+              if User.objects.filter(username='Alex').exists():
+                  User.objects.filter(username='Alex').delete()
+                  print("Existing superuser 'Alex' deleted.")
+              # Créer le superutilisateur
+              user = User.objects.create_superuser('Alex', 'veg@proton.me', 'secret')
+              print(f"Superuser created: {user.username}")
+          envFrom:
+            - configMapRef:
+                name: django-config
+          volumeMounts:
+            - name: postgres-data
+              mountPath: /var/lib/postgresql/data
+      containers:
+        - name: django
+          image: localhost:5000/mon_website-web
+          envFrom:
+            - configMapRef:
+                name: django-config
+          ports:
+            - containerPort: 8000
+          volumeMounts:
+            - name: postgres-data
+              mountPath: /var/lib/postgresql/data
+            - name: ollama-data
+              mountPath: /root/.ollama
+      volumes:
+        - name: postgres-data
+          persistentVolumeClaim:
+            claimName: postgres-pvc  # Remplace par le PVC correct pour PostgreSQL
+        - name: ollama-data
+          persistentVolumeClaim:
+            claimName: ollama-pvc  # Remplace par le PVC correct pour Ollama
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: django-service
+  namespace: my-app
+spec:
+  selector:
+    app: django
+  ports:
+    - protocol: TCP
+      port: 8000       # Port interne dans Kubernetes
+      targetPort: 8000  # Port que Django écoute
+      nodePort: 30007   # Port accessible depuis la machine hôte
+  type: NodePort

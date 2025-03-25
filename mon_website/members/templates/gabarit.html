@@ -13,12 +13,15 @@
 <div class="menu">
       <ul>
 	<li><a class="list-items" id="Calendar" href="{% url 'calendar' %}">History</a></li>
-        <li><a class="list-items" id="Carousel" href="{% url 'page1' %}">New (Ollama)</a></li>
+        <li><a class="list-items" id="Carousel" href="{% url 'loading' %}">New (Ollama)</a></li>
         <li><a class="list-items" id="Carouge" href="{% url 'logs' %}">Database</a></li>
         <li><a class="list-items" id="Carreaux" href="{% url 'help' %}">Help</a></li>
-        <li><a class="list-items" id="Caroline" href="">Sign In</a></li>
-	<li><a class="list-items" id="Carrefour" href="">Contact</a></li>
-
+	{% if user.is_authenticated %}
+            <li><a class="list-items" id="SignOut" href="{% url 'logout' %}">Sign Out</a></li>
+            <li><a class="list-items" id="Carrefour" href="{% url 'user_view' id=1 %}">{{ user.username }}</a></li>
+        {% else %}
+            <li><a class="list-items" id="SignIn" href="{% url 'signin' %}">Sign In</a></li>
+        {% endif %}
       </ul>
 </div>
 </nav>

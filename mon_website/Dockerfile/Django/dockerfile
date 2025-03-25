@@ -16,5 +16,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copie du projet
 COPY . .
 
+# Expose the port
+EXPOSE 8000
+
 # Définition de la commande de lancement
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

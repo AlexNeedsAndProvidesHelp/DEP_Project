@@ -1,0 +1,5 @@
+lancer depuis git bash dans ce répertoire :
+bash debug2.sh
+
+accéder au site sur le port du navigateur :
+localhost:30007

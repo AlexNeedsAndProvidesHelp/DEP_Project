@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: django-service
+  namespace: my-app
+spec:
+  selector:
+    app: django
+  ports:
+    - protocol: TCP
+      port: 8000       # Port interne dans Kubernetes
+      targetPort: 8000  # Port utilisé par Django
+      nodePort: 30007   # Port accessible depuis ta machine hôte
+    - protocol: TCP
+      port: 8025       # Port interne dans Kubernetes
+      targetPort: 8025  # Port utilisé par Django
+      nodePort: 30085   # Port accessible depuis ta machine hôte
+  type: NodePort

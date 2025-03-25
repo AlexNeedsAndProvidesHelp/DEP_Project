@@ -1,0 +1,25 @@
+{% extends "gabarit.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/user_view.css' %}" />
+
+<!-- Conteneur principal avec fond noir -->
+<div class="gallery-container">
+
+    <a href="{% url 'user_view' id=previous_id %}" class="nav-button">
+        <h1>Précédent</h1>
+        <div class="arrow">&#8592;</div>
+    </a>
+
+    <a href="{% url 'user_view' id=next_id %}" class="nav-button">
+        <h1>Suivant</h1>
+        <div class="arrow">&#8594;</div>
+    </a>
+
+    <!-- Texte animé avec pivot horizontal fluide -->
+    <div class="flipping-text">Bienvenue dans la galerie</div>
+
+</div>
+
+{% include "page.html" %}
+{% endblock %}
