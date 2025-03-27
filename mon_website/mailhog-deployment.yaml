@@ -27,13 +27,15 @@ metadata:
   namespace: my-app
 spec:
   selector:
-    app: mailhog
+    app: mailhog-service
   ports:
-    - protocol: TCP
+    - name: smtp
+      protocol: TCP
       port: 1025  # Port SMTP utilisé pour l'envoi de mails
       targetPort: 1025
       nodePort: 30025  # Port accessible sur les nœuds du cluster
-    - protocol: TCP
+    - name: web
+      protocol: TCP
       port: 8025  # Port HTTP pour l'interface web de MailHog
       targetPort: 8025
       nodePort: 30085  # Port HTTP accessible sur les nœuds du cluster

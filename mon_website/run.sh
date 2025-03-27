@@ -1,6 +1,16 @@
 #!/bin/bash
 
+# Supprimer tous les pods dans le namespace my-app
 kubectl delete pod --all -n my-app
+
+# Supprimer le registre Docker s'il existe
+docker rm -f registry 2>/dev/null
+
+# Démarrer le registre Docker
+docker run -d -p 5000:5000 --name registry registry:2
+
+# Pousser la dernière image de mon_website
+docker push localhost:5000/mon_website-web:latest
 
 # Fonction pour relancer tous les déploiements
 relancer_deployments() {

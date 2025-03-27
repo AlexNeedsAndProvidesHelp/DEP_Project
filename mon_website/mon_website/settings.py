@@ -142,8 +142,8 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'mailhog-service'  # Nom du service MailHog dans Docker Compose
+EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+EMAIL_HOST = 'mailhog-service.my-app.svc.cluster.local'  # Nom du service MailHog dans Docker Compose
 EMAIL_PORT = int(get_env_variable('EMAIL_PORT', 1025)) 
 EMAIL_USE_TLS = False  # MailHog ne nécessite pas de TLS
 EMAIL_HOST_USER = 'webmaster@localhost'  # Remplacez par votre email
