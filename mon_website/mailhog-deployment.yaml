@@ -27,7 +27,7 @@ metadata:
   namespace: my-app
 spec:
   selector:
-    app: mailhog-service
+    app: mailhog
   ports:
     - name: smtp
       protocol: TCP
